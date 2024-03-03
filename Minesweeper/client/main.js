@@ -656,17 +656,17 @@ function renderHints(hints, otherActions, drawOverlay) {
             ctxHints.fillStyle = "#00FF00";
             ctxHints.fillRect(hint.x * TILE_SIZE, hint.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
             ctxHints.fillStyle = "black";
-            ctxHints.fillText("O", (hint.x + 0.4) * TILE_SIZE, (hint.y + 0.7) * TILE_SIZE, TILE_SIZE);
+            ctxHints.fillText("OK", (hint.x + 0.3) * TILE_SIZE, (hint.y + 0.6) * TILE_SIZE, TILE_SIZE);
         } else if (hint.prob == 0) {   // mine
             ctxHints.fillStyle = "#FF0000";
             ctxHints.fillRect(hint.x * TILE_SIZE, hint.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
             ctxHints.fillStyle = "black";
-            ctxHints.fillText("M", (hint.x + 0.4) * TILE_SIZE, (hint.y + 0.7) * TILE_SIZE, TILE_SIZE);
+            ctxHints.fillText("M!", (hint.x + 0.3) * TILE_SIZE, (hint.y + 0.6) * TILE_SIZE, TILE_SIZE);
         } else if (hint.prob == 1) {  // safe
             ctxHints.fillStyle = "#00FF00";
             ctxHints.fillRect(hint.x * TILE_SIZE, hint.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
             ctxHints.fillStyle = "black";
-            ctxHints.fillText("O", (hint.x + 0.4) * TILE_SIZE, (hint.y + 0.7) * TILE_SIZE, TILE_SIZE);
+            ctxHints.fillText("OK", (hint.x + 0.3) * TILE_SIZE, (hint.y + 0.6) * TILE_SIZE, TILE_SIZE);
         } else if (hint.dead) {  // uncertain but dead
             ctxHints.fillStyle = "black";
             ctxHints.fillRect(hint.x * TILE_SIZE, hint.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
