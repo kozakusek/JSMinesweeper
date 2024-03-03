@@ -650,32 +650,36 @@ function renderHints(hints, otherActions, drawOverlay) {
     for (let i = 0; i < hints.length; i++) {
 
         const hint = hints[i];
+        ctxHints.globalAlpha = 1;
 
         if (hint.action == ACTION_CHORD) {
             ctxHints.fillStyle = "#00FF00";
+            ctxHints.fillRect(hint.x * TILE_SIZE, hint.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+            ctxHints.fillStyle = "black";
+            ctxHints.fillText("O", (hint.x + 0.4) * TILE_SIZE, (hint.y + 0.7) * TILE_SIZE, TILE_SIZE);
         } else if (hint.prob == 0) {   // mine
             ctxHints.fillStyle = "#FF0000";
+            ctxHints.fillRect(hint.x * TILE_SIZE, hint.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+            ctxHints.fillStyle = "black";
+            ctxHints.fillText("M", (hint.x + 0.4) * TILE_SIZE, (hint.y + 0.7) * TILE_SIZE, TILE_SIZE);
         } else if (hint.prob == 1) {  // safe
             ctxHints.fillStyle = "#00FF00";
+            ctxHints.fillRect(hint.x * TILE_SIZE, hint.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+            ctxHints.fillStyle = "black";
+            ctxHints.fillText("O", (hint.x + 0.4) * TILE_SIZE, (hint.y + 0.7) * TILE_SIZE, TILE_SIZE);
         } else if (hint.dead) {  // uncertain but dead
             ctxHints.fillStyle = "black";
+            ctxHints.fillRect(hint.x * TILE_SIZE, hint.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
         } else {  //uncertain
             ctxHints.fillStyle = "orange";
+            ctxHints.fillRect(hint.x * TILE_SIZE, hint.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
             if (firstGuess == 0) {
                 firstGuess = 1;
+                ctxHints.fillStyle = "#00FF00";
+                ctxHints.fillRect((hint.x + 0.25) * TILE_SIZE, (hint.y + 0.25) * TILE_SIZE, 0.5 * TILE_SIZE, 0.5 * TILE_SIZE);
+                firstGuess = 2;
             }
         }
-
-        ctxHints.globalAlpha = 1;
-
-        //console.log("Hint X=" + hint.x + " Y=" + hint.y);
-        ctxHints.fillRect(hint.x * TILE_SIZE, hint.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-        if (firstGuess == 1) {
-            ctxHints.fillStyle = "#00FF00";
-            ctxHints.fillRect((hint.x + 0.25) * TILE_SIZE, (hint.y + 0.25) * TILE_SIZE, 0.5 * TILE_SIZE, 0.5 * TILE_SIZE);
-            firstGuess = 2;
-        }
-
     }
 
      // put percentage over the tile 
