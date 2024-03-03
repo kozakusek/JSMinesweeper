@@ -666,7 +666,7 @@ function renderHints(hints, otherActions, drawOverlay) {
             }
         }
 
-        ctxHints.globalAlpha = 0.5;
+        ctxHints.globalAlpha = 1;
 
         //console.log("Hint X=" + hint.x + " Y=" + hint.y);
         ctxHints.fillRect(hint.x * TILE_SIZE, hint.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
@@ -753,7 +753,7 @@ function renderBorder(hints, flag) {
 
          const hint = hints[i];
 
-         ctxHints.globalAlpha = 0.7;
+         ctxHints.globalAlpha = 1;
          ctxHints.lineWidth = 6;
 
          if (flag) {
